@@ -24,4 +24,8 @@ Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em s
     - php artisan key:generate
 ### Configure o banco de dados no arquivo .env e execute as migrações:
     - php artisan db:seed
-### Se houver seeds disponíveis, execute para popular o banco:
+### Execute para popular o banco:
+    - php artisan db:seed
+
+
+
