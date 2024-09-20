@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edição de Cliente</title>
+    <title>Edição de Representante</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -35,35 +35,35 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
 
-                <h2 class="text-center mb-4">Edição de Cliente</h2>
+                <h2 class="text-center mb-4">Edição de Representante</h2>
 
-                <form id="clienteForm" method="POST" action="{{ route('cliente.update', $cliente->id) }}"></form>
+                <form id="representanteForm" method="POST" action="{{ route('representante.update', $representante->id) }}"></form>
                     @csrf
                     @method('PUT')
                     <div class="row mb-3">
                         <div class="col-md-2">
                             <label for="cpf" class="form-label">CPF:</label>
-                            <input type="text" id="cpf" name="cpf" class="form-control" maxlength="11" pattern="\d{11}" title="Digite exatamente 11 dígitos" value="{{ old('cpf', $cliente->cpf) }}" required>
+                            <input type="text" id="cpf" name="cpf" class="form-control" maxlength="11" pattern="\d{11}" title="Digite exatamente 11 dígitos" value="{{ old('cpf', $representante->cpf) }}" required>
                         </div>
 
                         <div class="col-md-3">
                             <label for="nome" class="form-label">Nome:</label>
-                            <input type="text" id="nome" name="nome" class="form-control" value="{{ old('nome', $cliente->nome) }}" required>
+                            <input type="text" id="nome" name="nome" class="form-control" value="{{ old('nome', $representante->nome) }}" required>
                         </div>
 
                         <div class="col-md-3">
                             <label for="datanascimento" class="form-label">Data de Nascimento:</label>
-                            <input type="date" id="datanascimento" name="datanascimento" class="form-control" value="{{ old('datanascimento', is_string($cliente->data_nascimento) ? $cliente->data_nascimento : $cliente->data_nascimento->format('Y-m-d')) }}" required>
+                            <input type="date" id="datanascimento" name="datanascimento" class="form-control" value="{{ old('datanascimento', is_string($representante->data_nascimento) ? $representante->data_nascimento : $representante->data_nascimento->format('Y-m-d')) }}" required>
                         </div>
 
                         <div class="col-md-4 d-flex align-items-center">
                             <label class="form-label me-2">Sexo:</label>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="genero" id="masculino" value="1" {{ old('genero', $cliente->genero) == 1 ? 'checked' : '' }} required>
+                                <input class="form-check-input" type="radio" name="genero" id="masculino" value="1" {{ old('genero', $representante->genero) == 1 ? 'checked' : '' }} required>
                                 <label class="form-check-label" for="masculino">Masculino</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="genero" id="feminino" value="2" {{ old('genero', $cliente->genero) == 2 ? 'checked' : '' }} required>
+                                <input class="form-check-input" type="radio" name="genero" id="feminino" value="2" {{ old('genero', $representante->genero) == 2 ? 'checked' : '' }} required>
                                 <label class="form-check-label" for="feminino">Feminino</label>
                             </div>
                         </div>
@@ -72,14 +72,14 @@
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="endereco" class="form-label">Endereço:</label>
-                            <input type="text" id="endereco" name="endereco" class="form-control" value="{{ old('endereco', $cliente->endereco) }}" required>
+                            <input type="text" id="endereco" name="endereco" class="form-control" value="{{ old('endereco', $representante->endereco) }}" required>
                         </div>
                         <div class="col-md-3">
                             <label for="cidade" class="form-label">Cidade:</label>
                             <select id="cidade" name="cidade" class="form-select" required>
                                 <option value="" disabled selected>Selecione uma cidade</option>
                                 @forelse ($cidades as $cidade)
-                                    <option value="{{ $cidade->id }}" {{ old('cidade') == $cidade->id ? 'selected' : ($cliente->cidade_id == $cidade->id ? 'selected' : '') }}>
+                                    <option value="{{ $cidade->id }}" {{ old('cidade') == $cidade->id ? 'selected' : ($representante->cidade_id == $cidade->id ? 'selected' : '') }}>
                                         {{ $cidade->nome }}
                                     </option>
                                 @empty
@@ -92,7 +92,7 @@
                             <select id="estado" name="estado" class="form-select" required>
                                 <option value="" disabled selected>Selecione um estado</option>
                                 @forelse ($estados as $estado)
-                                    <option value="{{ $estado->id }}" {{ old('estado') == $estado->id ? 'selected' : ($cliente->estado_id == $estado->id ? 'selected' : '') }}>
+                                    <option value="{{ $estado->id }}" {{ old('estado') == $estado->id ? 'selected' : ($representante->estado_id == $estado->id ? 'selected' : '') }}>
                                         {{ $estado->nome }}
                                     </option>
                                 @empty
@@ -114,7 +114,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        document.getElementById('clienteForm').addEventListener('submit', function(event) {
+        document.getElementById('representanteForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
             const form = event.target;
