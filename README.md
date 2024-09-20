@@ -15,8 +15,6 @@ Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em s
 ### ⚙️ Configurações do ambiente
 
 - Clone este repositório:
-ssh
-git clone git@github.com:RobertoAraujo/desafio-php.git
-https
-git clone https://github.com/RobertoAraujo/desafio-php.git
+- ssh git clone git@github.com:RobertoAraujo/desafio-php.git
+- https git clone https://github.com/RobertoAraujo/desafio-php.git
 
