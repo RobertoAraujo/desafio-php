@@ -18,3 +18,10 @@ Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em s
 - ssh git clone git@github.com:RobertoAraujo/desafio-php.git
 - https git clone https://github.com/RobertoAraujo/desafio-php.git
 
+### Instale as dependências PHP utilizando o Composer:
+    - composer install
+### Gere a chave da aplicação Laravel:
+    - php artisan key:generate
+### Configure o banco de dados no arquivo .env e execute as migrações:
+    - php artisan db:seed
+### Se houver seeds disponíveis, execute para popular o banco:
